@@ -1,5 +1,5 @@
-import { extendEnvironment } from "hardhat/config";
 import { ethers } from "ethers";
+import { extendEnvironment } from "hardhat/config";
 
 // We're extending the Hardhat Runtime Environment, adding our hashing functionality
 import "./type-extensions";
