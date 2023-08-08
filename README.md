@@ -3,14 +3,16 @@
 Hardhat TS plugin to generate a storage namespace for multi/proxy contracts to avoid collision.
 Extends the hre with hre.getHash, which you can use in scripts/tasks
 
+ERC-7201 Draft proposal implementation: keccak256(uint256(keccak256(id)) - 1)
+
 ```
 yarn hardhat getHash --input hello
 ```
 
-output = bytes32(uint(keccak256("hello")) - 1):
+output = keccak256(uint256(keccak256("example.main")) - 1):
 
 ```
-0xd9ce4ddf4612212cce747861d797e4673537b3bd39bbf004b69b2bc28b58c2c0
+0x183a6125c38840424c4a85fa12bab2ab606c4b6d0e7cc73c0c06ba5300eab5da
 ```
 
 ## Quick Start
@@ -67,7 +69,7 @@ You can also now include this in scripts/tests:
 
 ```
 import { getHash } from "hardhat"
-console.log(getHash("ok"));
+console.log(getHash("example.main"));
 ```
 
 Solidity implementation:
