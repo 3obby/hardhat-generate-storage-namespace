@@ -10,7 +10,7 @@ yarn hardhat getHash --input hello
 output = bytes32(uint(keccak256("hello")) - 1):
 
 ```
-0x1c8aff950685c2ed4bc3174f3472287b56d9517b9c948127319a09a7a36deac7
+0xd9ce4ddf4612212cce747861d797e4673537b3bd39bbf004b69b2bc28b58c2c0
 ```
 
 ## Quick Start
@@ -68,4 +68,18 @@ You can also now include this in scripts/tests:
 ```
 import { getHash } from "hardhat"
 console.log(getHash("ok"));
+```
+
+Solidity implementation:
+
+```
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.15;
+
+contract Hasher {
+    function getHash(string calldata _input) public pure returns (bytes32) {
+        bytes32 finalHash = keccak256(abi.encodePacked(uint256(keccak256(abi.encodePacked(_input))) -1));
+        return finalHash;
+    }
+}
 ```

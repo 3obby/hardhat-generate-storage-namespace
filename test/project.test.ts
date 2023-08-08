@@ -7,11 +7,11 @@ describe("Integration tests examples", function () {
   describe("Hardhat Runtime Environment extension", function () {
     useEnvironment("hardhat-project");
 
-    it("Hash of 'hello' should return 0x1x8...", async function () {
+    it("Hash of 'hello' should return 0xd9c...", async function () {
       const result = await this.hre.getHash("hello");
       assert.equal(
         result,
-        "0x1c8aff950685c2ed4bc3174f3472287b56d9517b9c948127319a09a7a36deac7"
+        "0xd9ce4ddf4612212cce747861d797e4673537b3bd39bbf004b69b2bc28b58c2c0"
       );
     });
   });
